@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Additional user feedback using CSS Pseudo Classes</title>
+
+    <style>
+        input:required {
+            border: 1px solid #fF00;
+        }
+
+        :optional {
+            background: #ccc;
+        }
+
+        .interacted:invalid {
+            border: 1px solid red;
+        }
+
+        .interacted:valid {
+            border: 1px solid green;
+        }
+    </style>
+
+    <script>
+        function addInteractedClass() {
+            var inputs = document.getElementsByTagName("input");
+
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].addEventListener("blur", function (event) {
+                    event.target.classList.add("interacted");
+                }, false);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", addInteractedClass, false);
+    </script>
+</head>
+
+<body>
+<p><label for="name">Your name</label></p>
+<p><input required id="name" type="text" placeholder="Please enter your name"></p>
+
+
+<p><label for="email">Your email</label></p>
+<p><input required id="email" type="email" placeholder="Enter Email Address">
+</p>
+
+<p><label for="message">Message</label></p>
+<p><textarea id="message"></textarea></p>
+
+
+<p><input type="submit" id="send" value="Send form"></p>
+</body>
+</html>
