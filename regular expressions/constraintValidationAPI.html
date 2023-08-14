@@ -12,7 +12,7 @@
             var form = document.getElementById("emailForm");
 
             form.addEventListener("submit", function (event) {
-                if (email1.validity.valid && email2.validity.valid && email1.value && email2.value) {
+                if (email1.validity.valid && email2.validity.valid && email1.value === email2.value) {
                     resultDiv.innerHTML = "<p>Email is valid and they match</p>";
                 } else {
                     resultDiv.innerHTML = "<p>Email is not valid or they do not match</p>";
@@ -21,13 +21,13 @@
             }, false);
         }
 
-        document.addEventListener("DOMContentLoaded", addInteractedClass, false);
+        document.addEventListener("DOMContentLoaded", emailCheck, false);
     </script>
 </head>
 
 <body>
 <h1>Email Validation Test</h1>
-<form id="emailForm">
+<form id="emailForm" novalidate>
     <label for="email1">Email 1:</label>
     <input type="email" id="email1" required><br><br>
 
@@ -36,6 +36,6 @@
 
     <button type="submit">Validate and Compare</button>
 </form>
-<div id="result" class="warning" hidden="hidden"></div>
+<div id="result" class="warning" hidden></div>
 </body>
 </html>
