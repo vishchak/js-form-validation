@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Other dynamic validation method</title>
+    <script>
+        function createDataList() {
+            var nameArray = ["Bill Gates", "Linus Torvalds", "Douglas Coupland", "Ridley Scott", "George Lucas"];
+
+            var dataList = document.getElementById("datalist");
+            dataList.id = "datalist1";
+            document.body.appendChild(dataList);
+
+            for (let i = 0; i < nameArray.length; i++) {
+                var option = document.createElement("option");
+                option.value = nameArray[i];
+                dataList.appendChild(option);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", createDataList, false);
+    </script>
+</head>
+<body>
+<input type="text" name="srch" id="srch" list="datalist1">
+<datalist id="datalist1">
+    <option value="Bill Gates"></option>
+    <option value="Linus Torvalds"></option>
+    <option value="Martin Gore"></option>
+    <option value="Kurt Harland Larson"></option>
+    <option value="Paul Robb"></option>
+</datalist>
+</body>
+</html>
