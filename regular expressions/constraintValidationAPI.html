@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Constraint Validation API</title>
+    <script>
+        function emailCheck() {
+            var email1 = document.getElementById("email1");
+            var email2 = document.getElementById("email2");
+
+            var resultDiv = document.getElementById("result");
+            var form = document.getElementById("emailForm");
+
+            form.addEventListener("submit", function (event) {
+                if (email1.validity.valid && email2.validity.valid && email1.value && email2.value) {
+                    resultDiv.innerHTML = "<p>Email is valid and they match</p>";
+                } else {
+                    resultDiv.innerHTML = "<p>Email is not valid or they do not match</p>";
+                }
+                event.preventDefault();
+            }, false);
+        }
+
+        document.addEventListener("DOMContentLoaded", addInteractedClass, false);
+    </script>
+</head>
+
+<body>
+<h1>Email Validation Test</h1>
+<form id="emailForm">
+    <label for="email1">Email 1:</label>
+    <input type="email" id="email1" required><br><br>
+
+    <label for="email2">Email 2:</label>
+    <input type="email" id="email2" required><br><br>
+
+    <button type="submit">Validate and Compare</button>
+</form>
+<div id="result" class="warning" hidden="hidden"></div>
+</body>
+</html>
